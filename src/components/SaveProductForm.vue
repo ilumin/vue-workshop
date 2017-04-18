@@ -18,6 +18,12 @@
 
 <script>
 export default {
+  props: ['product'],
+  methods: {
+    onSubmit() {
+      this.$emit('submit', this.product);
+    }
+  }
 }
 </script>
 
