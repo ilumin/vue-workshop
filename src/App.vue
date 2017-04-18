@@ -1,11 +1,13 @@
 <template>
+  <product-list></product-list>
 </template>
 
 <script>
+import ProductList from './components/ProductList';
+
 export default {
-  components: {}
+  components: {
+    ProductList
+  }
 }
 </script>
-
-<style>
-</style>
