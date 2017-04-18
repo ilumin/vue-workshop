@@ -36,8 +36,16 @@ export default {
   data: initialData,
   methods: {
     onFormSave(productData) {
-      productData.id = uuid.v4();
-      this.products.push(productData);
+      const index = this.products.findIndex((p) => p.id === productData.id);
+
+      if (index !== -1) {
+        this.products.splice(index, 1, productData)
+      }
+      else {
+        productData.id = uuid.v4();
+        this.products.push(productData);
+      }
+
       this.resetProductInForm()
     },
     resetProductInForm() {
