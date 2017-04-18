@@ -25,7 +25,7 @@ export default {
       this.$emit('submit', this.product);
     },
     onCancel() {
-      this.$emit('calcel');
+      this.$emit('cancel');
     }
   }
 }

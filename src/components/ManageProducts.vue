@@ -3,6 +3,7 @@
     <save-product-form
       :product="productInForm"
       v-on:submit="onFormSave"
+      v-on:cancel="onFormCancel"
     ></save-product-form>
     <product-list
       :products="products"
@@ -53,7 +54,10 @@ export default {
     },
     onEditClicked(product) {
       this.productInForm = { ...product };
-    }
+    },
+    onFormCancel() {
+      this.resetProductInForm()
+    },
   }
 }
 </script>
