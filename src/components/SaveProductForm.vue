@@ -12,7 +12,7 @@
       <label for="price">Price</label>
       <input type="number" v-model="product.price" id="price" placeholder="Enter price" number>
     </div>
-    <button type="submit" v-on:click.prevent="onSubmit">Save product</button>
+    <button type="submit" v-on:click.prevent="onSubmit">{{product.id ? 'Update product' : 'Add product'}}</button>
     <button type="cancel" v-if="product.id" v-on:click.prevent="onCancel">Cancel</button>
   </form>
 </template>
