@@ -55,7 +55,7 @@ export default {
       this.productInForm = { ...product };
     },
     onRemoveClicked(product) {
-      this.deleteProduct(product)
+      this.deleteProduct(product.id)
       if (product.id === this.productInForm.id) {
         this.resetProductInForm();
       }
