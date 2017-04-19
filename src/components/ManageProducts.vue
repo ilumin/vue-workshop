@@ -46,7 +46,7 @@ export default {
     ]),
     onFormSave(productData) {
       this.saveProduct(productData)
-      this.resetProductInForm()
+        .then(() => this.resetProductInForm())
     },
     onFormCancel() {
       this.resetProductInForm()
@@ -56,9 +56,11 @@ export default {
     },
     onRemoveClicked(product) {
       this.deleteProduct(product.id)
-      if (product.id === this.productInForm.id) {
-        this.resetProductInForm();
-      }
+        .then(() => {
+          if (product.id === this.productInForm.id) {
+            this.resetProductInForm();
+          }
+        })
     },
     resetProductInForm() {
       this.productInForm = initialData().productInForm;

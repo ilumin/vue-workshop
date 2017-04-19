@@ -1,5 +1,22 @@
 {
   "products": [
-    { "id": 1, "name": "Yikes", "description": "Yikes Yikes", "price": 199.00 }
+    {
+      "id": 1,
+      "name": "Yikes",
+      "description": "Yikes Yikes",
+      "price": "1999"
+    },
+    {
+      "id": 2,
+      "name": "and",
+      "description": "asdasd",
+      "price": "123"
+    },
+    {
+      "id": 3,
+      "name": "asdasd",
+      "description": "asdasd",
+      "price": "1232"
+    }
   ]
 }
