@@ -1,5 +1,5 @@
+import Vue from 'vue'
 import uuid from 'uuid'
-import { http } from 'vue'
 
 import {
   FETCH_PRODUCTS,
@@ -9,8 +9,10 @@ import {
 } from './mutation-types'
 
 export function fetchProducts({ commit }) {
-  return http.get('products/')
-    .then(response => commit(FETCH_PRODUCTS, response.body.data))
+  return Vue.http.get('products/')
+    .then((response) => {
+      commit(FETCH_PRODUCTS, response.body)
+    })
 }
 
 export function saveProduct({ commit, state }, product) {

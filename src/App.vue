@@ -17,7 +17,7 @@ export default {
     AppNav,
   },
   created () {
-    this.$store.dispatch('fecthProducts')
+    this.$store.dispatch('fetchProducts')
   }
 }
 </script>
