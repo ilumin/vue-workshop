@@ -15,6 +15,7 @@
 
 <script>
 import uuid from 'uuid'
+import { mapGetters, mapActions } from 'vuex'
 import ProductList from './ProductList'
 import SaveProductForm from './SaveProductForm'
 
@@ -25,8 +26,7 @@ const initialData = () => {
       name: '',
       description: '',
       price: null,
-    },
-    products: []
+    }
   }
 }
 
@@ -36,35 +36,32 @@ export default {
     SaveProductForm,
   },
   data: initialData,
+  computed: mapGetters({
+    products: 'getProducts'
+  }),
   methods: {
+    ...mapActions([
+      'saveProduct',
+      'deleteProduct'
+    ]),
     onFormSave(productData) {
-      const index = this.products.findIndex((p) => p.id === productData.id);
-
-      if (index !== -1) {
-        this.products.splice(index, 1, productData)
-      }
-      else {
-        productData.id = uuid.v4();
-        this.products.push(productData);
-      }
-
+      this.saveProduct(productData)
       this.resetProductInForm()
-    },
-    resetProductInForm() {
-      this.productInForm = initialData().productInForm;
-    },
-    onEditClicked(product) {
-      this.productInForm = { ...product };
     },
     onFormCancel() {
       this.resetProductInForm()
     },
+    onEditClicked(product) {
+      this.productInForm = { ...product };
+    },
     onRemoveClicked(product) {
-      const index = this.products.findIndex((p) => p.id === product.id);
-      this.products.splice(index, 1);
+      this.deleteProduct(product)
       if (product.id === this.productInForm.id) {
         this.resetProductInForm();
       }
+    },
+    resetProductInForm() {
+      this.productInForm = initialData().productInForm;
     },
   }
 }
