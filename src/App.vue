@@ -1,13 +1,10 @@
 <template>
-  <manage-products></manage-products>
+  <main class="container">
+    <router-view></router-view>
+  </main>
 </template>
 
 <script>
-import ManageProducts from './components/ManageProducts';
-
 export default {
-  components: {
-    ManageProducts
-  }
 }
 </script>
